@@ -1,11 +1,16 @@
-import './styles/global.css'
+import "./styles/global.css";
+import { Provider } from "react-redux";
+
+import Principal from "./components/Principal";
+
+import store from "./store";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      <button type="button" className="btn btn-warning">Warning</button>
-      </header>
+      <Provider store={store}>
+        <Principal />
+      </Provider>
     </div>
   );
 }
