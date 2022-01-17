@@ -1,16 +1,21 @@
 import "./styles/global.css";
 import { Provider } from "react-redux";
-
-import Principal from "./components/Principal";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import store from "./store";
+import Principal from "./components/Principal";
+import EpisodioDetails from './components/EpisidioDetails';
+
 
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
-        <Principal />
-      </Provider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Principal />} />
+          <Route path="/details" element={<EpisodioDetails />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

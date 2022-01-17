@@ -29,7 +29,7 @@ const FilterBar = ({ onNameFilter, onFavoriteFilter }: any) => {
 
   return (
     <div className="my-4 d-flex justify-content-between">
-      <div className="col-sm-6 my-2">
+      <div className="col-md-10 my-2">
         <input
           type="text"
           className="input"
@@ -40,7 +40,7 @@ const FilterBar = ({ onNameFilter, onFavoriteFilter }: any) => {
         />
       </div>
 
-      <div className="col-sm-2 my-2 d-flex align-items-center">
+      <div className="col-md-2 my-2 d-flex align-items-center">
         <label className="mx-5 text-white">Favoritos</label>
         <input
           type="checkbox"
