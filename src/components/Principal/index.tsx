@@ -1,9 +1,22 @@
 import { useState, useEffect } from "react";
 
-import api from "../../services/api";
-
 import Episodio from "../Episodio";
 import FilterBar from "../FilterBar";
+import api from "../../services/api";
+
+import { useQuery, gql } from "@apollo/client";
+
+const FILMS_QUERY = gql`
+  query {
+    episodes {
+      results {
+        id
+        name
+        air_date
+      }
+    }
+  }
+`;
 
 const Principal = () => {
   const [allData, setData] = useState([]);
@@ -14,8 +27,22 @@ const Principal = () => {
     });
   }, []);
 
+  const { data, loading, error } = useQuery(FILMS_QUERY);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error || !data) {
+    return <div>ERROR</div>;
+  }
+
+
+  console.log("Dados");
+  console.log(data.episodes.results);
+
   const handleFilterName = (nome: string) => {
-    const filteredData = allData.filter((item: { nome: string }) => {
+    const filteredData = data.episodes.results.filter((item: { nome: string }) => {
       const fullName = `${item.nome}`;
       console.log(item);
       if (fullName.toLowerCase().includes(nome.toLowerCase())) {
@@ -23,17 +50,17 @@ const Principal = () => {
       }
     });
 
-    setData(filteredData);
+    //setData(filteredData);
   };
 
   const handleFavoriteName = (email: string) => {
-    const filteredData = allData.filter((item: { email: string }) => {
+    const filteredData = data.episodes.results.filter((item: { email: string }) => {
       if (item.email.toLowerCase().includes(email.toLowerCase())) {
         return item;
       }
     });
 
-    setData(filteredData);
+    //setData(filteredData);
   };
 
   return (
@@ -49,7 +76,7 @@ const Principal = () => {
       <div className="row">
         <div className="col-sm-12">
           <div className="row mt-4">
-            {allData.map((item: { id: any }) => (
+            {data.episodes.results.map((item: any) => (
               <Episodio item={item} key={item.id} />
             ))}
           </div>

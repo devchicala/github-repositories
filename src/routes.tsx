@@ -1,16 +1,19 @@
 import { FC } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 import Principal from "./components/Principal";
-import Episodio from "./components/Episodio";
+import EpisodioDetails from "./components/EpisidioDetails";
 
-const Routes: FC = () => {
+const Routers: FC = () => {
   return (
-    <BrowserRouter>
-      <Route path="/" element={Principal} />
-      <Route path="/details" element={Episodio} />
-    </BrowserRouter>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Principal />} />
+          <Route path="/details" element={<EpisodioDetails />} />
+        </Routes>
+      </Router>
   );
 };
 
-export default Routes;
+export default Routers;
