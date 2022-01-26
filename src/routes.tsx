@@ -10,7 +10,7 @@ const Routers: FC = () => {
     <Router>
         <Routes>
           <Route path="/" element={<Principal />} />
-          <Route path="/details" element={<EpisodioDetails />} />
+          <Route path="/details/:id" element={<EpisodioDetails />} />
         </Routes>
       </Router>
   );

@@ -66,17 +66,6 @@ a {
   background: #619B8A;
 }
 
-.input {
-  border: 0;
-  padding: 0px;
-  font-size: 1.3em;
-  font-family: "Ubuntu Light", "Ubuntu", "Ubuntu Mono", "Segoe Print",
-    "Segoe UI";
-  color: #ccc;
-  border: solid 1px #27ae60;
-  box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
-  background-color: #233d4d;
-}
 
 .check {
     border: 0;

@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const FilterBar = ({ onNameFilter, onFavoriteFilter }: any) => {
+const FilterBar = ({ onNameFilter, onFavoriteFilter }) => {
   const [filters, setFilters] = useState({
     name: "",
     favourite: "",
   });
 
   const handleInput =
-    (field: string) => (event: { target: { value: any } }) => {
+    (field) => (event) => {
       const { value } = event.target;
 
       setFilters({

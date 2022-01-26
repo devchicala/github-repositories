@@ -1,17 +1,33 @@
 import { useEffect, useState } from "react";
 import img from "../../assets/rick-and-morty.jpg";
+import { FILTERED_EPISODES } from "../../graphql/queries";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+
 import Episodio from "../Episodio";
-import api from "../../services/api";
 
-const EpisodioDetails = ({ item }: any) => {
+const EpisodioDetails = (item) => {
   const [allData, setData] = useState([]);
+  const [filter, SetFilter] = useState("");
 
-  useEffect(() => {
-    api.get("codigopenal").then((response) => {
-      setData(response.data);
-    });
-  }, []);
+  const { data, loading, error } = useQuery(FILTERED_EPISODES, {
+    variables: { filter: filter },
+  });
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error || !data) {
+    return <div>ERROR</div>;
+  }
+
+  const { id } = useParams();
+
+  console.log('ID ', id)
+
   return (
+    
     <div className="container-fluid secondary p-5">
       <div className="row align-items-center">
         <div className="col-sm-8">
@@ -28,8 +44,8 @@ const EpisodioDetails = ({ item }: any) => {
         <h1 className="">Personagens</h1>
 
         <div className="row mt-5">
-          {allData.map((item: { id: any }) => (
-            <Episodio item={item} key={item.id} />
+          {data.episodes.results.map((item) => (
+            <Episodio item={item} />
           ))}
         </div>
       </div>
