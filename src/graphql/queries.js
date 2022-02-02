@@ -19,8 +19,8 @@ const FILTERED_SONGS = gql`
 `;
 
 const FILTERED_EPISODES = gql`
-  query {
-    episodes {
+  query ($filter: String) {
+    episodes(filter: { name: $filter }) {
       results {
         id
         name

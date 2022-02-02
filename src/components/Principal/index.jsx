@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import api from "../../services/api";
 import { useDeleteSongItem } from "../../hooks";
 import { FILTERED_EPISODES } from "../../graphql/queries";
 
@@ -66,9 +65,11 @@ const Principal = () => {
       <div className="row">
         <div className="col-sm-12">
           <div className="row mt-4">
-            {data.episodes.results.map((item) => (
-              <Episodio item={item}/>
-            ))}
+            {!data || loading ? (
+              <div>loading...</div>
+            ) : (
+              data.episodes.results.map((item) => <Episodio item={item} />)
+            )}
           </div>
         </div>
       </div>
