@@ -13,12 +13,12 @@ const Episodio = ({ item }) => {
           </div>
           <div className="mt-1 text-white back">
             <div className="card-body">
-              <h5 className="card-title text-center">Leonel Francisco</h5>
+              <h5 className="card-title text-center">{item.name}</h5>
               <span className="d-flex justify-content-between">
-                <p className="card-text">Episódio #1</p>
-                <p className="card-text">Nº do Elenco: 34</p>
+                <p className="card-text">Episódio #{item.id}</p>
+                <p className="card-text">Nº do Elenco: {item.characters.length}</p>
               </span>
-              <p className="card-text text-center">Estreia 10/03/2018</p>
+              <p className="card-text text-center">{item.air_date}</p>
               <span className="d-flex justify-content-between">
                 <p className="card-text">
                   Favorito <FaHeart />

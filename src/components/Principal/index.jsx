@@ -22,34 +22,7 @@ const Principal = () => {
     return <div>ERROR</div>;
   }
 
-  console.log("Dados");
-  console.log(data.episodes.results);
-
-  /*const handleFilterName = (nome) => {
-    const filteredData = data.episodes.results.filter(
-      (item: { nome: string }) => {
-        const fullName = `${item.nome}`;
-        console.log(item);
-        if (fullName.toLowerCase().includes(nome.toLowerCase())) {
-          return item;
-        }
-      }
-    );
-
-    //setData(filteredData);
-  };
-
-  const handleFavoriteName = (email) => {
-    const filteredData = data.episodes.results.filter(
-      (item: { email: string }) => {
-        if (item.email.toLowerCase().includes(email.toLowerCase())) {
-          return item;
-        }
-      }
-    );
-
-    //setData(filteredData);
-  };*/
+  console.log(data);
 
   return (
     <div className="container-fluid principal p-5">
