@@ -35,18 +35,20 @@ const FILTERED_EPISODES = gql`
 `;
 
 const FILTERED_EPISODE = gql`
-    query {
-      episode(id:1) {
-          id
-          name
-          air_date
-          characters{
-            image
-            name
-            species
-            status
-          }
+  query ($filter: ID!) {
+    episode(id: $filter) {
+      id
+      name
+      air_date
+      characters {
+        id
+        image
+        name
+        species
+        status
       }
+    }
+  }
 `;
 
 export { FILTERED_SONGS, SONGS, FILTERED_EPISODES, FILTERED_EPISODE };

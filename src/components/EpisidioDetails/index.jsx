@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react";
 import img from "../../assets/rick-and-morty.jpg";
-import { FILTERED_EPISODES } from "../../graphql/queries";
+import { FILTERED_EPISODE } from "../../graphql/queries";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 import Episodio from "../Episodio";
 
-const EpisodioDetails = (item) => {
-  const [allData, setData] = useState([]);
-  const [filter, SetFilter] = useState("");
+function ProfilePage() {
+  // Get the userId param from the URL.
+  let { userId } = useParams();
+  
+}
 
-  const { data, loading, error } = useQuery(FILTERED_EPISODES, {
-    variables: { filter: filter },
+const EpisodioDetails = (item) => {
+  let { id } = useParams();
+
+  const { data, loading, error } = useQuery(FILTERED_EPISODE, {
+    variables: { filter: id },
   });
 
   if (loading) {
@@ -22,9 +27,7 @@ const EpisodioDetails = (item) => {
     return <div>ERROR</div>;
   }
 
-  const { id } = useParams();
-
-  console.log('ID ', id)
+  console.log(data)
 
   return (
     
@@ -34,9 +37,9 @@ const EpisodioDetails = (item) => {
           <img src={img} alt="" className="img-fluid" />
         </div>
         <div className="col-sm-4">
-          <p className="card-text">Episódio #1</p>
-          <p className="card-text">Name: Return to Mart</p>
-          <p className="card-text">Data de Emissão: 10/03/2018</p>
+          <p className="card-text">Episódio #{data.episode.id}</p>
+          <p className="card-text">Name: {data.episode.name}</p>
+          <p className="card-text">Data de Emissão: {data.episode.air_date}</p>
         </div>
       </div>
 
@@ -44,8 +47,8 @@ const EpisodioDetails = (item) => {
         <h1 className="">Personagens</h1>
 
         <div className="row mt-5">
-          {data.episodes.results.map((item) => (
-            <Episodio item={item} />
+          {data.episode.characters.map((item) => (
+            `Personagem - ${item.id}`
           ))}
         </div>
       </div>

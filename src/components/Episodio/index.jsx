@@ -16,7 +16,7 @@ const Episodio = ({ item }) => {
               <h5 className="card-title text-center">{item.name}</h5>
               <span className="d-flex justify-content-between">
                 <p className="card-text">Episódio #{item.id}</p>
-                <p className="card-text">Nº do Elenco: {item.characters.length}</p>
+                <p className="card-text">Nº do Elenco: {item.characters.length ?? '-'}</p>
               </span>
               <p className="card-text text-center">{item.air_date}</p>
               <span className="d-flex justify-content-between">

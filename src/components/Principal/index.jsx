@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import { useDeleteSongItem } from "../../hooks";
 import { FILTERED_EPISODES } from "../../graphql/queries";
 
 import { useQuery } from "@apollo/client";
@@ -12,7 +11,6 @@ const Principal = () => {
   const { data, loading, error } = useQuery(FILTERED_EPISODES, {
     variables: { filter: filter },
   });
-  const { deleteSong } = useDeleteSongItem(filter);
 
   if (loading) {
     return <div>Loading...</div>;
