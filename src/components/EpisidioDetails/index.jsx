@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 import Episodio from "../Episodio";
+import Character from "../Character";
 
 function ProfilePage() {
   // Get the userId param from the URL.
@@ -48,7 +49,7 @@ const EpisodioDetails = (item) => {
 
         <div className="row mt-5">
           {data.episode.characters.map((item) => (
-            `Personagem - ${item.id}`
+            <Character item={item}/>
           ))}
         </div>
       </div>
