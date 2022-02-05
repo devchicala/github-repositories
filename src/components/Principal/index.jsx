@@ -1,11 +1,16 @@
+import React from 'react';
 import { useState } from "react";
 
 import { FILTERED_EPISODES } from "../../graphql/queries";
 
 import { useQuery } from "@apollo/client";
 import Episodio from "../Episodio";
+import { AuthContext } from '../../context/auth';
 
 const Principal = () => {
+  const { user, favorite, favoriteUp  } = React.useContext(AuthContext);
+  console.log(user);
+
   const [filter, setFilter] = useState("");
 
   const { data, loading, error } = useQuery(FILTERED_EPISODES, {
@@ -20,7 +25,7 @@ const Principal = () => {
     return <div>ERROR</div>;
   }
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <div className="container-fluid principal p-5">
