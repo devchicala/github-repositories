@@ -9,9 +9,10 @@ import { GoAlert } from "react-icons/go";
 
 import { AuthContext } from "../../context/auth";
 
-const Principal = () => {
-  const { user, favorite, favoriteUp } = React.useContext(AuthContext);
-  console.log(user);
+const Favorite = () => {
+  const { favorite } = React.useContext(AuthContext);
+
+  //console.log(favorite[0].value);
 
   const [filter, setFilter] = useState("");
 
@@ -37,26 +38,19 @@ const Principal = () => {
     );
   }
 
-  //console.log(data);
-
   return (
     <div className="container-fluid principal p-5">
       <div className="row">
-        <div className="col-sm-12">
-          <input
-            type="text"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          />
-        </div>
+      <h1 className="text-white">Episódios favoritos:</h1>
       </div>
       <div className="row">
         <div className="col-sm-12">
           <div className="row mt-4">
-            {!data || loading ? (
-              <div>...</div>
+            {!favorite ? (
+              <div>SEM FAVORITOS!</div>
             ) : (
-              data.episodes.results.map((item) => <Episodio item={item} />)
+              favorite.map((item) => <Episodio item={item.value} />
+              )
             )}
           </div>
         </div>
@@ -65,4 +59,4 @@ const Principal = () => {
   );
 };
 
-export default Principal;
+export default Favorite;

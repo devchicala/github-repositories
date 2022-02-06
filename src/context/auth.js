@@ -49,7 +49,7 @@ export const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, addFavorite, printFavorites, isFavorite, addView, isView }}
+      value={{ user, favorite, addFavorite, printFavorites, isFavorite, addView, isView }}
     >
       {props.children}
     </AuthContext.Provider>

@@ -2,6 +2,7 @@ import React from "react";
 import { AuthContext } from "../../context/auth";
 import img from "../../assets/rick-morty.jpg";
 import { FaHeart, FaEye, FaInfo } from "react-icons/fa";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const Episodio = ({ item }) => {
   const { user, favorite, addFavorite, printFavorites, isFavorite, addView, isView } =
     React.useContext(AuthContext);
 
+    console.log(favorite);
   return (
     <div className="col-sm-3 mb-4">
       <div className="card p-1">
@@ -64,7 +66,7 @@ const Episodio = ({ item }) => {
             </span>
             <span className="text-center">
               <p className="card-text">
-                Visto {" "} {isView(item) < 0 ?  <FaEye /> : <FaEye color="red" />} 
+                Visto {" "} {isView(item) < 0 ?  <BsFillEyeSlashFill size={25} /> : <BsFillEyeFill size={25}  color="red"/> } 
               </p>
             </span>
           </div>

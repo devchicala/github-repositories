@@ -4,14 +4,9 @@ import { FILTERED_EPISODE } from "../../graphql/queries";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
-import Episodio from "../Episodio";
-import Character from "../Character";
+import { GoAlert } from "react-icons/go";
 
-function ProfilePage() {
-  // Get the userId param from the URL.
-  let { userId } = useParams();
-  
-}
+import Character from "../Character";
 
 const EpisodioDetails = (item) => {
   let { id } = useParams();
@@ -21,14 +16,22 @@ const EpisodioDetails = (item) => {
   });
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container-fluid text-center py-5">
+        <div class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   if (error || !data) {
-    return <div>ERROR</div>;
+    return (
+      <div className="container-fluid text-center py-5 text-size-12">
+        <GoAlert size={70} /> <h1>REGISTO NÃO ENCONTRADO!</h1>
+      </div>
+    );
   }
-
-  console.log(data)
 
   return (
     
