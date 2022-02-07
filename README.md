@@ -1,6 +1,7 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Desafio - Rick and Morty
+
+O projeto tem como objectivo gerenciar a api graphql [Rick and Morty API Graphql](https://rickandmortyapi.com/graphql)
 
 ## Available Scripts
 
