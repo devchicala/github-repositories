@@ -6,6 +6,10 @@ O projeto tem como objectivo gerenciar a api graphql [Rick and Morty API Graphql
 
 # Bibliotecas utilizadas
 
+## Bootstrapt
+
+Biblioteca responsável pela estilização do projecto
+
 ## Context API
 
 Biblioteca responsável pelo gerenciamento global dos estados no projectoAp

@@ -1,23 +1,5 @@
 import { gql } from "@apollo/client";
 
-const SONGS = gql`
-  query {
-    songs {
-      id
-      title
-    }
-  }
-`;
-
-const FILTERED_SONGS = gql`
-  query songs($filter: String) {
-    songs(filter: $filter) {
-      id
-      title
-    }
-  }
-`;
-
 const FILTERED_EPISODES = gql`
   query ($filter: String) {
     episodes(filter: { name: $filter }) {
@@ -51,4 +33,4 @@ const FILTERED_EPISODE = gql`
   }
 `;
 
-export { FILTERED_SONGS, SONGS, FILTERED_EPISODES, FILTERED_EPISODE };
+export { FILTERED_EPISODES, FILTERED_EPISODE };

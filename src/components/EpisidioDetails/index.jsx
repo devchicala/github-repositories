@@ -41,14 +41,14 @@ const EpisodioDetails = (item) => {
           <img src={img} alt="" className="img-fluid" />
         </div>
         <div className="col-sm-4">
-          <p className="card-text">Episódio #{data.episode.id}</p>
-          <p className="card-text">Name: {data.episode.name}</p>
-          <p className="card-text">Data de Emissão: {data.episode.air_date}</p>
+          <p className="card-text text-warning"><h3>Episódio #{data.episode.id}</h3></p>
+          <p className="card-text text-white"><h5>Name: {data.episode.name}</h5></p>
+          <p className="card-text text-white"><h5>Data de Emissão: {data.episode.air_date}</h5></p>
         </div>
       </div>
 
       <div className="px-5 pt-5">
-        <h1 className="">Personagens</h1>
+        <h1 className="text-warning">Personagens</h1>
 
         <div className="row mt-5">
           {data.episode.characters.map((item) => (

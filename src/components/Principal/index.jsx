@@ -51,7 +51,7 @@ const Principal = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-sm-12">
+        <div className="">
           <div className="row mt-4">
             {!data || loading ? (
               <div>...</div>

@@ -12,7 +12,7 @@ const Episodio = ({ item }) => {
 
     console.log(favorite);
   return (
-    <div className="col-sm-3 mb-4">
+    <div className="col-sm-4 col-md-3 mb-4">
       <div className="card p-1">
         <div className="col-12">
           <img src={img} alt="" className="w-100 img-fluid" />
@@ -27,10 +27,10 @@ const Episodio = ({ item }) => {
               </p>
             </span>
             <p className="card-text text-center">{item.air_date}</p>
-            <span className="d-flex justify-content-between">
-              <p className="card-text">
+            <div className="d-flex justify-content-between">
+              <span className="card-text">
                 <button
-                  type="button"
+                  tyspane="button"
                   class="btn btn-secondary"
                   onClick={() => {
                     addFavorite(item);
@@ -38,19 +38,8 @@ const Episodio = ({ item }) => {
                 >
                   Favorito {" "} {isFavorite(item) < 0 ?  <FaHeart /> : <FaHeart color="red" />}
                 </button>
-              </p>
-              {/*<!--p className="card-text">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  onClick={() => {
-                    printFavorites();
-                  }}
-                >
-                  VER <FaHeart />
-                </button>
-              </p-->*/}
-              <p className="card-text">
+              </span>
+              <span className="card-text">
                 <Link
                   to={"/details/" + item.id}
                   style={{ textDecoration: "none" }}
@@ -62,8 +51,8 @@ const Episodio = ({ item }) => {
                     Ver detalhes <FaInfo size={20} />
                   </button>
                 </Link>
-              </p>
-            </span>
+              </span>
+            </div>
             <span className="text-center">
               <p className="card-text">
                 Visto {" "} {isView(item) < 0 ?  <BsFillEyeSlashFill size={25} /> : <BsFillEyeFill size={25}  color="red"/> } 
