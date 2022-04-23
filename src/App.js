@@ -6,7 +6,7 @@ import { AuthProvider } from "./context/auth";
 function App() {
 
   return (
-    <div className="App">
+    <div className="App p-5">
       <AuthProvider>
           <Routers />
       </AuthProvider>
