@@ -1,19 +1,23 @@
-import axios from "axios";
-import React, { useState } from "react"
-import { useNavigate  } from "react-router-dom";
-import { AuthContext } from "../../context/auth";
+import axios from 'axios'
+import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/auth'
+import ErrorModal from '../ErrorModal'
 
 export const Search = () => {
-  const [user, setUser] = useState('');
-  let navigate = useNavigate();
-
-  const { addProfile } =
-    React.useContext(AuthContext);
-
+  const [user, setUser] = useState('')
+  let navigate = useNavigate()
+  const { addProfile, error, setError } = useContext(AuthContext);
 
   function handlerGettingUser() {
-    axios.get(`https://api.github.com/users/${user}`).then(response => addProfile(response));
-    navigate('/profile');
+    axios
+      .get(`https://api.github.com/users/${user}`)
+      .then((response) => {
+        addProfile(response);
+        setError(false);
+        navigate('/profile');
+      })
+      .catch(() => setError(true))
   }
 
   return (
@@ -23,11 +27,23 @@ export const Search = () => {
       </div>
 
       <div className="d-flex justify-content-center">
-        <input type="text" style={{ width: '500px' }} placeholder="Search a username" value={ user } onChange= { e => setUser(e.target.value) } />
-        <button type="text" style={{ width: '100px' }} onClick={ handlerGettingUser }>
+        <input
+          type="text"
+          style={{ width: '500px' }}
+          placeholder="Search a username"
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+        />
+        <button
+          type="text"
+          style={{ width: '100px' }}
+          onClick={handlerGettingUser}
+        >
           Buscar
         </button>
       </div>
+
+      {error ? <ErrorModal /> : ''}
     </div>
   )
 }
