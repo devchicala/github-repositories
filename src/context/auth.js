@@ -17,7 +17,7 @@ export const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ addProfile, returnProfile, error, setError }}
+      value={{ addProfile, returnProfile, error, setError, profile }}
     >
       {props.children}
     </AuthContext.Provider>

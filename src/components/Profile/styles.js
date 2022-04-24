@@ -13,10 +13,9 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  border: 1px solid red;
-  background: #233d4d;
-  width: 100%;
-  max-width: 400px;
+  background: #f5f5f5;
+  width: 70vw;
+  height: 80vh;
   padding: 2rem 3rem;
   border-radius: 5px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
@@ -39,20 +38,29 @@ export const Container = styled.div`
     margin-top: 0.25rem;
   }
 `
-
-export const Button = styled.button`
-  width: 5rem;
-  height: 2rem;
-  background: transparent;
-  border-radius: 0.5rem;
-  border: none;
-  font-size: 1.2rem;
-`
-
-export const CloseButton = styled.button`
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  background: transparent;
-  border: 0;
+export const RenderColumn = styled.div`
+  margin-bottom: 3.5rem;
+  width: 60vw;
+  height: 20vh;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  header {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #00f;
+  }
+  strong {
+    font-size: 1.25rem;
+    color: red;
+    margin-bottom: 3.5rem;
+    background: none;
+  }
+  p {
+    font-size: 1.25rem;
+    color: #faf;
+    margin-top: 0.25rem;
+  }
 `

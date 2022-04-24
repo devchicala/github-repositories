@@ -1,7 +1,12 @@
 import React from 'react'
+import { Container, Overlay } from "./styles";
 
 export const UserResult = () => {
   return (
-    <div className="result"></div>
+    <Overlay>
+      <Container>
+        
+      </Container>
+    </Overlay>
   )
 }
