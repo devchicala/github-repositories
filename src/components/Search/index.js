@@ -5,9 +5,8 @@ import { AuthContext } from '../../context/auth'
 import ErrorModal from '../ErrorModal'
 
 export const Search = () => {
-  const [user, setUser] = useState('')
   let navigate = useNavigate()
-  const { addProfile, error, setError } = useContext(AuthContext);
+  const { addProfile, error, setError, user, setUser } = useContext(AuthContext);
 
   function handlerGettingUser() {
     axios

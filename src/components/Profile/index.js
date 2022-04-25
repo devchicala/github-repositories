@@ -1,13 +1,22 @@
 import React from 'react'
 import { AuthContext } from '../../context/auth'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 import img from '../../assets/close.png'
 
 import { Container, Overlay, RenderColumn } from './styles'
 
 const Profile = () => {
-  const { returnProfile, profile } = React.useContext(AuthContext)
+  const { returnProfile, profile, addRepos, user} = React.useContext(AuthContext)
 
-  console.log(profile.data)
+  function handlerGettingUserRepos() {
+    axios
+      .get(`https://api.github.com/users/${user}/repos`)
+      .then((response) => {
+        addRepos(response);
+      })
+      .catch(() => {})
+  }
 
   return (
     <Overlay>
@@ -18,9 +27,11 @@ const Profile = () => {
         <h4 className="py-3">{profile.data?.bio}</h4>
         <RenderColumn className="d-flex justify-content-between">
           <div>
-            <span>{profile.data?.public_repos}</span>
-            <br />
-            <strong>Repositórios</strong>
+            <Link to={'/userResult'} onClick={ handlerGettingUserRepos } style={{ textDecoration: 'none' }}>
+              <span>{profile.data?.public_repos}</span>
+              <br />
+              <strong>Repositórios</strong>
+            </Link>
           </div>
           <div>
             <span>{profile.data?.followers}</span>

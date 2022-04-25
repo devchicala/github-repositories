@@ -13,10 +13,11 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  border: 1px solid red;
   background: #f5f5f5;
-  width: 100%;
-  max-width: 400px;
+  overflow:hidden; 
+  overflow-y:scroll;
+  width: 70vw;
+  height: 80vh;
   padding: 2rem 3rem;
   border-radius: 5px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
@@ -28,14 +29,13 @@ export const Container = styled.div`
     color: #00f;
   }
   strong {
-    font-size: 2.25rem;
+    font-size: 2rem;
     color: red;
     margin-bottom: 3.5rem;
     background: none;
   }
   p {
     font-size: 1.25rem;
-    color: #faf;
     margin-top: 0.25rem;
   }
 `
