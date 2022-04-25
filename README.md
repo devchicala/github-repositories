@@ -7,9 +7,9 @@ exibindo em ordem decrescente de estrelas.
 
 # Bibliotecas utilizadas
 
-## Bootstrapt
+## Bootstrapt e Styled-Components
 
-Biblioteca responsável pela estilização do projecto
+Bibliotecas responsáveis pela estilização do Aplicativo
 
 ## Context API
 
