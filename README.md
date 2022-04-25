@@ -1,7 +1,8 @@
 
-# Desafio - Rick and Morty
+# Desafio - Github Repos
 
-O projeto tem como objectivo gerenciar a api graphql [Rick and Morty API Graphql](https://rickandmortyapi.com/graphql)
+O projeto tem como objectivo listar repositório de um determinado @ user do github,
+e exibir os seus repositório em ordem decrescente de estrelas.
 
 
 # Bibliotecas utilizadas
@@ -17,10 +18,6 @@ Biblioteca responsável pelo gerenciamento global dos estados no projectoAp
 ## React Icons
 
 Biblioteca de ícones para react
-
-## Apollo Client
-
-Biblioteca para trabalhar com API Graphql
 
 ## Scripts desponíveis
 

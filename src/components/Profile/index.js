@@ -2,7 +2,6 @@ import React from 'react'
 import { AuthContext } from '../../context/auth'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import img from '../../assets/close.png'
 
 import { Container, Overlay, RenderColumn, Picture } from './styles'
 
@@ -11,7 +10,7 @@ const Profile = () => {
 
   function handlerGettingUserRepos() {
     axios
-      .get(`https://api.github.com/users/${user}/repos`)
+      .get(`https://api.github.com/users/${user}/repos?_sort=stargazers_count&_order=Desc`)
       .then((response) => {
         addRepos(response);
       })
