@@ -1,7 +1,7 @@
 import React, { FC, useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth'
-import img from "../../assets/close.png";
+import { RiErrorWarningFill, RiArrowLeftFill } from "react-icons/ri";
 
 import { Container, Overlay, CloseButton, Button } from "./styles";
 
@@ -11,23 +11,15 @@ const Modal = () => {
   return (
     <Overlay>
       <Container>
+        <RiErrorWarningFill color="white" size={90}/> <br/>
         <strong>Nenhum usuário foi encontrado!</strong> <br /> <br />
         <Button
           onClick={() => {
             setError(false);
           }}
-          type="button"
         >
-          Voltar ...
+          <RiArrowLeftFill size={20}/> Voltar
         </Button>
-        {/*<CloseButton
-          type="button"
-          onClick={() => {
-            //closeModal();
-          }}
-        >
-          <img src={img}/>
-        </CloseButton>*/}
       </Container>
     </Overlay>
   );

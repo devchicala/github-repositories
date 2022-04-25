@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Overlay = styled.div`
-  background: rgba(242, 243, 245, 0.8);
+  background: #0d1117;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,10 +13,26 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  background: #f5f5f5;
-  overflow:hidden; 
-  overflow-y:scroll;
-  width: 70vw;
+  overflow: hidden;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #21262d;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }
   height: 80vh;
   padding: 2rem 3rem;
   border-radius: 5px;
@@ -36,7 +52,10 @@ export const Container = styled.div`
   }
   p {
     font-size: 1.25rem;
-    margin-top: 0.25rem;
+    width: 50vw;
+    border-radius: 5px;
+    background: white;
+    border: 1px;
   }
 `
 

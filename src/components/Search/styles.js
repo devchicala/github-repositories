@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  background: #0d1117;
+  background: #f5f5f5;
   width: 70vw;
   height: 80vh;
   padding: 2rem 3rem;
@@ -38,13 +38,6 @@ export const Container = styled.div`
     margin-top: 0.25rem;
   }
 `
-
-export const Picture = styled.img`
-  width: 10vw;
-  height: 22vh;
-  border-radius: 70px;
-`
-
 export const RenderColumn = styled.div`
   margin-bottom: 3.5rem;
   width: 60vw;
@@ -70,4 +63,29 @@ export const RenderColumn = styled.div`
     color: #faf;
     margin-top: 0.25rem;
   }
+`
+
+export const InputGithub = styled.input`
+  background: #0d1117;
+  color: white;
+  font-size: 1.5em;
+  border-color: aqua;
+  border: 2px solid #21262d;
+  border-radius: 3px;
+  margin: 15px;
+  padding: 15px;
+
+  $:Focus,
+  $:Active{
+    outline: aqua,
+    box-shadow: red,
+  }
+`
+
+export const SearchButton = styled.button`
+  width: 80px;
+  height: 12vh;
+  background: white;
+  border: 0;
+  border-radius: 3px;
 `

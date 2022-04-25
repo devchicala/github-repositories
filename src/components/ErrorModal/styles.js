@@ -13,8 +13,8 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
-  border: 1px solid red;
-  background: #233d4d;
+  border: 1px solid;
+  background: #0d1117;
   width: 100%;
   max-width: 400px;
   padding: 2rem 3rem;
@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
   strong {
     font-size: 2.25rem;
-    color: red;
+    color: white;
     margin-bottom: 3.5rem;
     background: none;
   }
@@ -44,6 +44,7 @@ export const Button = styled.button`
   width: 5rem;
   height: 2rem;
   background: transparent;
+  color: white;
   border-radius: 0.5rem;
   border: none;
   font-size: 1.2rem;

@@ -3,19 +3,24 @@ import { AuthContext } from '../../context/auth'
 import { Container, Overlay } from './styles'
 
 export const UserResult = () => {
-  const { repos, user } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
+  const { repos, user } = useContext(AuthContext)
+  const [loading, setLoading] = useState(true)
   const [repositories, setRepositories] = useState([])
 
-  console.log(repos)
-  useEffect(() => {setRepositories(repos.data)}, [])
+  useEffect(() => {
+    setRepositories(repos.data)
+    if (repositories != null) {
+      setLoading(false)
+    }
+    console.log(repositories)
+  }, [])
 
   return (
     <Overlay>
       <Container>
-        <h2>Repositórios de {user}</h2>
-        {repositories  && repositories.map(result => (
-          <p key={repositories.id}> {result?.name} </p>
+        <h2 className="text-white uppercase">Repositórios de {user}</h2>
+        {loading ? 'Loading' : repos.data?.map((result) => (
+          <p key={result.id}> {result?.name} </p>
         ))}
       </Container>
     </Overlay>
