@@ -2,7 +2,7 @@
 # Desafio - Github Repos
 
 O projeto tem como objectivo listar repositório de um determinado @ user do github,
-e exibir os seus repositório em ordem decrescente de estrelas.
+exibindo em ordem decrescente de estrelas.
 
 
 # Bibliotecas utilizadas
